@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Cost Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section h2 {
+            margin-top: 0;
+        }
+        
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .table th {
+            background-color: #f0f0f0;
+        }
+        
+        .recommendation {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .recommendation h3 {
+            margin-top: 0;
+        }
+        
+        .summary {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .summary h2 {
+            margin-top: 0;
+        }
+        
+        @media print {
+            body {
+                font-size: 12px;
+            }
+            
+            .container {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .section {
+                margin-bottom: 10px;
+            }
+            
+            .table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 5px;
+                text-align: left;
+            }
+            
+            .recommendation {
+                padding: 5px;
+                border: 1px solid #ddd;
+                margin-bottom: 10px;
+            }
+            
+            .summary {
+                padding: 5px;
+                border: 1px solid #ddd;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cloud Cost Report</h1>
+        </div>
+        <div class="section">
+            <h2>Project Profile</h2>
+            <p>Name: Real Estate Listing Platform</p>
+            <p>Budget (INR per month): 55,000</p>
+            <p>Description: A scalable real estate platform serving ~25k monthly visitors.</p>
+            <p>Tech Stack:</p>
+            <ul>
+                <li>Backend: Laravel</li>
+                <li>Database: MySQL</li>
+                <li>Storage: AWS (Object/File)</li>
+                <li>Search: Elasticsearch</li>
+                <li>Monitoring: Basic uptime & performance</li>
+                <li>Frontend: React</li>
+                <li>Hosting: AWS hosting services</li>
+            </ul>
+            <p>Non-Functional Requirements:</p>
+            <ul>
+                <li>SEO optimization</li>
+                <li>High performance search</li>
+                <li>Caching</li>
+                <li>Disaster Recovery</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Billing Data</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Service</th>
+                        <th>Resource ID</th>
+                        <th>Region</th>
+                        <th>Usage Type</th>
+                        <th>Usage Quantity</th>
+                        <th>Unit</th>
+                        <th>Cost (INR)</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-01</td>
+                        <td>RDS</td>
+                        <td>r-realestate-mysql-01</td>
+                        <td>us-west-2</td>
+                        <td>MySQL</td>
+                        <td>9,000</td>
+                        <td>hours</td>
+                        <td>13,500</td>
+                        <td>MySQL database for real estate listings</td>
+                    </tr>
+                    <tr>
+                        <td>2025-01</td>
+                        <td>EC2</td>
+                        <td>i-realestate-web-01</td>
+                        <td>us-west-2</td>
+                        <td>Linux/UNIX (on-demand)</td>
+                        <td>9,000</td>
+                        <td>hours</td>
+                        <td>13,500</td>
+                        <td>Compute instance for web application</td>
+                    </tr>
+                    <tr>
+                        <td>2025-01</td>
+                        <td>Elasticsearch</td>
+                        <td>e-realestate-search-01</td>
+                        <td>us-west-2</td>
+                        <td>Instance</td>
+                        <td>360</td>
+                        <td></td>
+                        <td>0.0144</td>
+                        <td>Elasticsearch instance for search queries</td>
+                    </tr>
+                    <tr>
+                        <td>2025-01</td>
+                        <td>APIGateway</td>
+                        <td>api-gateway-realestate-01</td>
+                        <td>us-west-2</td>
+                        <td></td>
+                        <td>720</td>
+                        <td></td>
+                        <td>0.0112</td>
+                        <td>API Gateway requests</td>
+                    </tr>
+                    <tr>
+                        <td>2025-01</td>
+                        <td>CloudWatch</td>
+                        <td>c-w-realestate-metrics-01</td>
+                        <td>us-west-2</td>
+                        <td>data points</td>
+                        <td>2,880</td>
+                        <td></td>
+                        <td>2,880</td>
+                        <td>Monitoring metrics and logs</td>
+                    </tr>
+                    <tr>
+                        <td>2025-01</td>
+                        <td>S3</td>
+                        <td>s-realestate-media-01</td>
+                        <td>us-west-2</td>
+                        <td>Standard Storage (SSD)</td>
+                        <td>1,800</td>
+                        <td>GB-Mo</td>
+                        <td>3,000</td>
+                        <td>Storage for media files in S3</td>
+                    </tr>
+                    <tr>
+                        <td>2025-01</td>
+                        <td>CloudFront</td>
+                        <td>cf-realestate-01</td>
+                        <td>USW2</td>
+                        <td>Byte</td>
+                        <td>432,000,000</td>
+                        <td></td>
+                        <td>10,800</td>
+                        <td>CloudFront edge locations</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02</td>
+                        <td>RDS</td>
+                        <td>r-realestate-mysql-01</td>
+                        <td>us-west-2</td>
+                        <td>MySQL</td>
+                        <td>10,800</td>
+                        <td>hours</td>
+                        <td>16,200</td>
+                        <td>MySQL database for real estate listings</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02</td>
+                        <td>EC2</td>
+                        <td>i-realestate-web-01</td>
+                        <td>us-west-2</td>
+                        <td>Linux/UNIX (on-demand)</td>
+                        <td>10,800</td>
+                        <td>hours</td>
+                        <td>16,200</td>
+                        <td>Compute instance for web application</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02</td>
+                        <td>Elasticsearch</td>
+                        <td>e-realestate-search-01</td>
+                        <td>us-west-2</td>
+                        <td>Instance</td>
+                        <td>432</td>
+                        <td></td>
+                        <td>0.0173</td>
+                        <td>Elasticsearch instance for search queries</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02</td>
+                        <td>APIGateway</td>
+                        <td>api-gateway-realestate-01</td>
+                        <td>us-west-2</td>
+                        <td></td>
+                        <td>864</td>
+                        <td></td>
+                        <td>0.0144</td>
+                        <td>API Gateway requests</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02</td>
+                        <td>CloudWatch</td>
+                        <td>c-w-realestate-metrics-01</td>
+                        <td>us-west-2</td>
+                        <td>data points</td>
+                        <td>4,032</td>
+                        <td></td>
+                        <td>4,032</td>
+                        <td>Monitoring metrics and logs</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02</td>
+                        <td>S3</td>
+                        <td>s-realestate-media-01</td>
+                        <td>us-west-2</td>
+                        <td>Standard Storage (SSD)</td>
+                        <td>3,600</td>
+                        <td>GB-Mo</td>
+                        <td>4,500</td>
+                        <td>Storage for media files in S3</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02</td>
+                        <td>CloudFront</td>
+                        <td>cf-realestate-01</td>
+                        <td>USW2</td>
+                        <td>Byte</td>
+                        <td>648,000,000</td>
+                        <td></td>
+                        <td>19,440</td>
+                        <td>CloudFront edge locations</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03</td>
+                        <td>RDS</td>
+                        <td>r-realestate-mysql-01</td>
+                        <td>us-west-2</td>
+                        <td>MySQL</td>
+                        <td>12,000</td>
+                        <td>hours</td>
+                        <td>18,000</td>
+                        <td>MySQL database for real estate listings</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03</td>
+                        <td>EC2</td>
+                        <td>i-realestate-web-01</td>
+                        <td>us-west-2</td>
+                        <td>Linux/UNIX (on-demand)</td>
+                        <td>12,000</td>
+                        <td>hours</td>
+                        <td>18,000</td>
+                        <td>Compute instance for web application</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03</td>
+                        <td>Elasticsearch</td>
+                        <td>e-realestate-search-01</td>
+                        <td>us-west-2</td>
+                        <td>Instance</td>
+                        <td>504</td>
+                        <td></td>
+                        <td>0.0197</td>
+                        <td>Elasticsearch instance for search queries</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03</td>
+                        <td>APIGateway</td>
+                        <td>api-gateway-realestate-01</td>
+                        <td>us-west-2</td>
+                        <td></td>
+                        <td>1,008</td>
+                        <td></td>
+                        <td>0.0144</td>
+                        <td>API Gateway requests</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03</td>
+                        <td>CloudWatch</td>
+                        <td>c-w-realestate-metrics-01</td>
+                        <td>us-west-2</td>
+                        <td>data points</td>
+                        <td>5,040</td>
+                        <td></td>
+                        <td>5,040</td>
+                        <td>Monitoring metrics and logs</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03</td>
+                        <td>S3</td>
+                        <td>s-realestate-media-01</td>
+                        <td>us-west-2</td>
+                        <td>Standard Storage (SSD)</td>
+                        <td>4,800</td>
+                        <td>GB-Mo</td>
+                        <td>6,000</td>
+                        <td>Storage for media files in S3</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03</td>
+                        <td>CloudFront</td>
+                        <td>cf-realestate-01</td>
+                        <td>USW2</td>
+                        <td>Byte</td>
+                        <td>864,000,000</td>
+                        <td></td>
+                        <td>27,648</td>
+                        <td>CloudFront edge locations</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <h2>Cost Analysis</h2>
+            <p>Total Monthly Cost: 67,350</p>
+            <p>Budget: 55,000</p>
+            <p>Budget Variance: 12,350</p>
+            <p>High Cost Services:</p>
+            <ul>
+                <li>S3: 22,500</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Recommendations</h2>
+            <div class="recommendation">
+                <h3>Migrate MySQL to Amazon RDS for PostgreSQL</h3>
+                <p>Current Cost: 16,200</p>
+                <p>Potential Savings: 13,500</p>
+                <p>Description: Migrate MySQL to Amazon RDS for PostgreSQL, improving database performance and scalability.</p>
+                <p>Implementation Effort: Medium</p>
+                <p>Risk Level: Medium</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Assess MySQL usage and determine if Amazon RDS for PostgreSQL is suitable</li>
+                    <li>Migrate to Amazon RDS for PostgreSQL, ensuring data integrity</li>
+                    <li>Update application code to accommodate Amazon RDS for PostgreSQL</li>
+                </ul>
+                <p>Cloud Providers: AWS</p>
+            </div>
+            <div class="recommendation">
+                <h3>Implement Right-Sizing for EC2 Instances</h3>
+                <p>Current Cost: 16,200</p>
+                <p>Potential Savings: 16,200</p>
+                <p>Description: Implement right-sizing for EC2 instances, reducing costs and improving resource utilization.</p>
+                <p>Implementation Effort: Medium</p>
+                <p>Risk Level: Medium</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Assess EC2 instance usage patterns, identifying opportunities for right-sizing</li>
+                    <li>Update instance configurations, ensuring optimal resource utilization</li>
+                    <li>Monitor performance and adjust configurations as needed</li>
+                </ul>
+                <p>Cloud Providers: AWS</p>
+            </div>
+            <div class="recommendation">
+                <h3>Optimize Elasticsearch Configuration</h3>
+                <p>Current Cost: 9.5</p>
+                <p>Potential Savings: 9.5</p>
+                <p>Description: Optimize Elasticsearch configuration, improving search performance and reducing costs.</p>
+                <p>Implementation Effort: Low</p>
+                <p>Risk Level: Low</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Review Elasticsearch configuration, identifying opportunities for optimization</li>
+                    <li>Update configuration settings, utilizing optimized settings</li>
+                    <li>Monitor performance and adjust configurations as needed</li>
+                </ul>
+                <p>Cloud Providers: AWS</p>
+            </div>
+            <div class="recommendation">
+                <h3>Implement Cost-Effective Storage Options</h3>
+                <p>Current Cost: 22,500</p>
+                <p>Potential Savings: 15,000</p>
+                <p>Description: Implement cost-effective storage options, reducing costs and improving resource utilization.</p>
+                <p>Implementation Effort: Low</p>
+                <p>Risk Level: Low</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Review storage options, identifying cost-effective alternatives</li>
+                    <li>Implement cost-effective storage options, utilizing optimized settings</li>
+                    <li>Monitor performance and adjust configurations as needed</li>
+                </ul>
+                <p>Cloud Providers: AWS</p>
+            </div>
+            <div class="recommendation">
+                <h3>Optimize CloudWatch Configuration</h3>
+                <p>Current Cost: 4,032</p>
+                <p>Potential Savings: 0</p>
+                <p>Description: Optimize CloudWatch configuration, improving monitoring performance and reducing costs.</p>
+                <p>Implementation Effort: Low</p>
+                <p>Risk Level: Low</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Review CloudWatch configuration, identifying opportunities for optimization</li>
+                    <li>Update configuration settings, utilizing optimized settings</li>
+                    <li>Monitor performance and adjust configurations as needed</li>
+                </ul>
+                <p>Cloud Providers: AWS</p>
+            </div>
+            <div class="recommendation">
+                <h3>Implement Cost-Effective CloudFront Options</h3>
+                <p>Current Cost: 41,488.8</p>
+                <p>Potential Savings: 19,440</p>
+                <p>Description: Implement cost-effective CloudFront options, reducing costs and improving performance.</p>
+                <p>Implementation Effort: Low</p>
+                <p>Risk Level: Low</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Review CloudFront configuration, identifying opportunities for optimization</li>
+                    <li>Update configuration settings, utilizing optimized settings</li>
+                    <li>Monitor performance and adjust configurations as needed</li>
+                </ul>
+                <p>Cloud Providers: AWS</p>
+            </div>
+            <div class="recommendation">
+                <h3>Optimize API Gateway Configuration</h3>
+                <p>Current Cost: 11.4</p>
+                <p>Potential Savings: 0</p>
+                <p>Description: Optimize API Gateway configuration, improving API performance and reducing costs.</p>
+                <p>Implementation Effort: Low</p>
+                <p>Risk Level: Low</p>
+                <p>Steps:</p>
+                <ul>
+                    <li>Review API Gateway configuration, identifying opportunities for optimization</li>
+                    <li>Update configuration settings, utilizing optimized settings</li>
+                    <li>Monitor performance and adjust configurations as needed</li>
+                </ul>
+                <p>Cloud Providers: AWS</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Summary</h2>
+            <div class="summary">
+                <p>Total Potential Savings: 53,125</p>
+                <p>Savings Percentage: 96.53%</p>
+                <p>Recommendations Count: 7</p>
+                <p>High Impact Recommendations: 3</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

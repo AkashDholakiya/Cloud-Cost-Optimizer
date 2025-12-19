@@ -1,0 +1,4 @@
+We are developing a real estate listing platform for about 25,000 monthly visitors.
+Budget: ₹55,000 per month.
+Tech stack: Laravel backend, MySQL database, Elasticsearch for fast property search, AWS hosting, React frontend.
+Non-functional requirements: SEO optimization, high performance search, caching, and disaster recovery.

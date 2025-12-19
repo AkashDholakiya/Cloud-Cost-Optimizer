@@ -1,0 +1,20 @@
+{
+  "name": "Real Estate Listing Platform",
+   "budget_inr_per_month": 55000,
+   "description": "A scalable real estate platform serving ~25k monthly visitors.",
+   "tech_stack": {
+      "backend": "Laravel",
+      "database": "MySQL",
+      "storage": "AWS (Object/ File)",
+      "search": "Elasticsearch",
+      "monitoring": "Basic uptime & performance",
+      "frontend": "React",
+      "hosting": "AWS hosting services"
+   },
+   "non_functional_requirements": [
+      "SEO optimization",
+      "High performance search",
+      "Caching",
+      "Disaster Recovery"
+   ]
+}
